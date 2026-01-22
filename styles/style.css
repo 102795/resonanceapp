@@ -50,6 +50,11 @@
             font-size: 14px;
         }
 
+         .icon-btn:hover{
+            transform: (1.1);
+            scale: (1.1);
+         }
+
         .logo {
             font-weight: 700;
             letter-spacing: 1px;
@@ -154,19 +159,25 @@
 
         
         .section-header {
+
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            
         }
 
         .section-title {
             font-size: 16px;
             font-weight: 600;
+            
+        
         }
 
         .section-sub {
             font-size: 12px;
             color: #a0a7c0;
+            
+            
         }
 
         .album-grid {
