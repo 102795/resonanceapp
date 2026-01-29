@@ -72,7 +72,7 @@ $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
     <label>Tag (bijv. Festival, Interview, Release)</label>
     <input type="text" name="tag" required>
 
-    <label>Thumbnail URL (bijv. images/news1.jpg)</label>
+    <label>Thumbnail URL</label>
     <input type="text" name="thumbnail_url" required>
 
     <label>Leestijd (in minuten)</label>

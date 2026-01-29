@@ -62,7 +62,7 @@ if (!$article) {
 
            
             <div class="article-thumbnail" 
-                 style="background-image:url('../<?= htmlspecialchars($article['thumbnail_url']) ?>');">
+                 style="background-image:url('images/<?= htmlspecialchars($article['thumbnail_url']) ?>');">
             </div>
 
             <div class="article-title">
