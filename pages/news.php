@@ -1,3 +1,11 @@
+<?php
+
+    $db = new PDO(
+        "mysql:host=localhost:3306;dbname=resonance;charset=utf8",
+        "resonance-admin",
+        "VlQsyQ2gucqh08"
+    );
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
