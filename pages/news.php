@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Nieuws – Resonance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/news.css">
+    <link rel="stylesheet" href="../styles/news.css">
    
 </head>
 
@@ -26,7 +26,7 @@
 
 <main class="layout">
 
-    <!-- Sidebar -->
+
     <aside class="sidebar">
         <div class="sidebar-title">Saved</div>
 
