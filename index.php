@@ -1,3 +1,11 @@
+<?php
+$db = new PDO("mysql:host=localhost;dbname=resonance;charset=utf8", "resonance-admin", "JOUW_WACHTWOORD");
+
+$query = $db->query("SELECT * FROM news_articles ORDER BY published_at DESC LIMIT 3");
+$articles = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -11,6 +19,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
 
 </head>
+
+
 <body>
 
 <header class="topbar">
@@ -49,35 +59,31 @@
     
     <section class="main">
        
-        <section class="news-grid">
-         
-            <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news1.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Festival</div>
-                    <div class="news-title">Nieuwe line-up voor Summer Vibes</div>
-                    <div class="news-meta">Gisteren · 5 min lezen</div>
-                </div>
-            </article>
+       <section class="news-grid">
 
+    <?php foreach ($articles as $article): ?>
+        <a href="news.php?id=<?= $article['article_id'] ?>">
             <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news2.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Interview</div>
-                    <div class="news-title">In gesprek met upcoming rapper LYNX</div>
-                    <div class="news-meta">2 dagen geleden · 7 min lezen</div>
-                </div>
-            </article>
 
-            <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news3.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Release</div>
-                    <div class="news-title">Debuutalbum van Neon Echo is uit</div>
-                    <div class="news-meta">Vandaag · 4 min lezen</div>
+                <div class="news-image"
+                     style="background-image:url('<?= htmlspecialchars($article['thumbnail_url']) ?>');">
                 </div>
+
+                <div class="news-content">
+                    <div class="news-tag"><?= htmlspecialchars($article['tag']) ?></div>
+                    <div class="news-title"><?= htmlspecialchars($article['title']) ?></div>
+                    <div class="news-meta">
+                        <?= date('d-m-Y', strtotime($article['published_at'])) ?> ·
+                        <?= htmlspecialchars($article['read_time']) ?> min lezen
+                    </div>
+                </div>
+
             </article>
-        </section>
+        </a>
+    <?php endforeach; ?>
+
+</section>
+
 
         
         <section>
