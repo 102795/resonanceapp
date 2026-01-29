@@ -5,12 +5,14 @@ $db = new PDO(
     "VlQsyQ2gucqh08"
 );
 
+// ID ophalen
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
     die("Geen artikel ID opgegeven.");
 }
 
+// Artikel ophalen
 $stmt = $db->prepare("SELECT * FROM news_articles WHERE article_id = ?");
 $stmt->execute([$id]);
 $article = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,28 +21,88 @@ if (!$article) {
     die("Artikel niet gevonden.");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($article['title']) ?></title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <title><?= htmlspecialchars($article['title']) ?> – Resonance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/news.css">
 </head>
+
 <body>
 
-<h1><?= htmlspecialchars($article['title']) ?></h1>
+<header class="topbar">
+    <div class="topbar-left">
+        <div class="icon-btn">&#8592;</div>
+        <div class="icon-btn">&#8594;</div>
+        <div class="icon-btn">&#8962;</div>
+        <span class="logo">Resonance</span>
+    </div>
 
-<p><strong><?= htmlspecialchars($article['tag']) ?></strong></p>
+    <div class="topbar-right">
+        <div class="icon-btn">&#128269;</div>
+        <div class="icon-btn">&#127760;</div>
+    </div>
+</header>
 
-<p>
-    <?= date('d-m-Y', strtotime($article['published_at'])) ?> ·
-    <?= htmlspecialchars($article['read_time']) ?> min lezen
-</p>
+<main class="layout">
 
-<img src="../<?= htmlspecialchars($article['thumbnail_url']) ?>" style="max-width:400px;">
+    <aside class="sidebar">
+        <div class="sidebar-title">Saved</div>
 
-<p><?= nl2br(htmlspecialchars($article['content'])) ?></p>
+        <div class="sidebar-item"><div class="sidebar-icon"></div><span>album</span></div>
+        <div class="sidebar-item"><div class="sidebar-icon"></div><span>artiest</span></div>
+        <div class="sidebar-item"><div class="sidebar-icon"></div><span>playlist</span></div>
+    </aside>
+
+    <section>
+
+        <div class="article-container">
+
+            <!-- Thumbnail -->
+            <div class="article-thumbnail" 
+                 style="background-image:url('../<?= htmlspecialchars($article['thumbnail_url']) ?>');">
+            </div>
+
+            <!-- Titel -->
+            <div class="article-title">
+                <?= htmlspecialchars($article['title']) ?>
+            </div>
+
+            <!-- Meta -->
+            <div class="article-meta">
+                Gepubliceerd op <?= date('d-m-Y', strtotime($article['published_at'])) ?> 
+                · door <?= htmlspecialchars($article['author']) ?>
+            </div>
+
+            <!-- Content -->
+            <div class="article-content">
+                <?= nl2br(htmlspecialchars($article['content'])) ?>
+            </div>
+
+        </div>
+
+        <div class="now-playing">
+            <div class="np-left">
+                <div class="np-cover"></div>
+                <div class="np-text">
+                    <div class="np-title">songtitel</div>
+                    <div class="np-artist">artiest</div>
+                </div>
+            </div>
+
+            <div class="np-controls">
+                <span>&#8592;</span>
+                <span>&#10074;&#10074;</span>
+                <span>&#8594;</span>
+            </div>
+
+            <div class="np-time">00:00 / 03:51</div>
+        </div>
+
+    </section>
+</main>
 
 </body>
 </html>
