@@ -2,15 +2,10 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Album – Resonance</title>
+    <title>Nieuws – Resonance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-<link rel="stylesheet" href="/styles/style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
-  
+    <link rel="stylesheet" href="/styles/news.css">
+   
 </head>
 
 <body>
@@ -31,7 +26,7 @@
 
 <main class="layout">
 
-   
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-title">Saved</div>
 
@@ -54,43 +49,28 @@
 
     <section>
 
-        <div class="album-header">
-            <div class="album-cover" style="background-image:url('images/album1.jpg');"></div>
+        
+        <div class="article-container">
 
-            <div class="album-info">
-                <div class="album-name">albumnaam</div>
-                <div class="album-artist">artiest: Nova Pulse</div>
-                <div class="album-length">albumlengte: 42:18</div>
-            </div>
-        </div>
+      
+            <div class="article-thumbnail" style="background-image:url('images/news1.jpg');"></div>
 
-     
-        <div class="tracklist">
+           
+            <div class="article-title">Titel van het nieuwsartikel</div>
 
-            <div class="track">
-                <div class="track-cover"></div>
-                <div class="track-title">songtitel</div>
-                <div class="track-artist">artiest</div>
-                <div class="track-time">00:00 / 03:51</div>
-            </div>
+           
+            <div class="article-meta">Gepubliceerd op 12-02-2025 · door Redactie Resonance</div>
 
-            <div class="track">
-                <div class="track-cover"></div>
-                <div class="track-title">songtitel</div>
-                <div class="track-artist">artiest</div>
-                <div class="track-time">00:00 / 03:51</div>
-            </div>
-
-            <div class="track">
-                <div class="track-cover"></div>
-                <div class="track-title">songtitel</div>
-                <div class="track-artist">artiest</div>
-                <div class="track-time">00:00 / 03:51</div>
+           
+            <div class="article-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Dit is een voorbeeldtekst voor het nieuwsartikel. 
+                Hier komt de volledige inhoud uit de database.
             </div>
 
         </div>
 
-    
+       
         <div class="now-playing">
             <div class="np-left">
                 <div class="np-cover"></div>

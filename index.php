@@ -45,37 +45,37 @@
     </aside>
 
   
-    <section class="main">
-       
-        <section class="news-grid">
-         
-            <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news1.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Festival</div>
-                    <div class="news-title">Nieuwe line-up voor Summer Vibes</div>
-                    <div class="news-meta">Gisteren · 5 min lezen</div>
-                </div>
-            </article>
 
-            <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news2.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Interview</div>
-                    <div class="news-title">In gesprek met upcoming rapper LYNX</div>
-                    <div class="news-meta">2 dagen geleden · 7 min lezen</div>
-                </div>
-            </article>
+    
+   <section class="main">
 
-            <article class="news-card">
-                <div class="news-image" style="background-image:url('images/news3.jpg');"></div>
-                <div class="news-content">
-                    <div class="news-tag">Release</div>
-                    <div class="news-title">Debuutalbum van Neon Echo is uit</div>
-                    <div class="news-meta">Vandaag · 4 min lezen</div>
-                </div>
-            </article>
-        </section>
+    <section class="news-grid">
+
+        <?php foreach ($articles as $article): ?>
+            <a href="news.php?id=<?= $article['article_id'] ?>">
+                <article class="news-card">
+
+                    <div class="news-image"
+                         style="background-image:url('<?= $article['thumbnail_url'] ?>');">
+                    </div>
+
+                    <div class="news-content">
+                        <div class="news-tag"><?= $article['tag'] ?></div>
+                        <div class="news-title"><?= $article['title'] ?></div>
+                        <div class="news-meta">
+                            <?= date('d-m-Y', strtotime($article['published_at'])) ?> ·
+                            <?= $article['read_time'] ?> min lezen
+                        </div>
+                    </div>
+
+                </article>
+            </a>
+        <?php endforeach; ?>
+
+    </section>
+
+</section>
+
 
         
         <section>
