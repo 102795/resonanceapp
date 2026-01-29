@@ -108,8 +108,6 @@ $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
                 <a href="pages/news.php?id=<?= $a['article_id'] ?>" 
                    style="color:#4fa3ff; margin-right:10px;">Bekijken</a>
 
-                <a href="admin_edit.php?id=<?= $a['article_id'] ?>" 
-                   style="color:#ffc107; margin-right:10px;">Bewerken</a>
 
                 <a href="admin.php?delete=<?= $a['article_id'] ?>" 
                    onclick="return confirm('Weet je zeker dat je dit artikel wilt verwijderen?');"
