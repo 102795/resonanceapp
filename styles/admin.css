@@ -1,0 +1,55 @@
+  body {
+            background: #050816;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #0b1020;
+            padding: 20px;
+            border-radius: 12px;
+            width: 500px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: none;
+            background: #151b2c;
+            color: #fff;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #1f2a3d;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 12px;
+            background: #1f2a3d;
+            border-radius: 8px;
+        }
