@@ -1,42 +1,12 @@
 <?php
 
-    $db = new PDO(
-        "mysql:host=localhost:3306;dbname=resonance;charset=utf8",
-        "resonance-admin",
-        "VlQsyQ2gucqh08"
-    );
+$db = new PDO(
+    "mysql:host=localhost:3306;dbname=resonance;charset=utf8",
+    "resonance-admin",
+    "VlQsyQ2gucqh08"
+);
 
 
-
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $title = $_POST['title'];
-    $tag = $_POST['tag'];
-    $thumbnail_url = $_POST['thumbnail_url'];
-    $read_time = $_POST['read_time'];
-    $author = $_POST['author'];
-    $content = $_POST['content'];
-
-  
-    $stmt = $db->prepare("
-        INSERT INTO news_articles (title, tag, thumbnail_url, read_time, author, content, published_at)
-        VALUES (?, ?, ?, ?, ?, ?, NOW())
-    ");
-
-    $stmt->execute([
-        $title,
-        $tag,
-        $thumbnail_url,
-        $read_time,
-        $author,
-        $content
-    ]);
-
-    $message = "Artikel succesvol toegevoegd!";
-}
-
-// DELETE
 if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
 
@@ -74,12 +44,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = "Artikel succesvol toegevoegd!";
 }
 
-
 $all = $db->query("SELECT * FROM news_articles ORDER BY published_at DESC");
 $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -117,9 +85,8 @@ $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
 
     <button type="submit">Artikel opslaan</button>
 
-    
-
 </form>
+
 <h2 style="margin-top:40px;">Bestaande artikelen</h2>
 
 <table style="width:100%; margin-top:20px; border-collapse: collapse;">
@@ -149,7 +116,6 @@ $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
         </tr>
     <?php endforeach; ?>
 </table>
-
 
 </body>
 </html>
