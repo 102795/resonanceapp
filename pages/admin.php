@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $all = $db->query("SELECT * FROM news_articles ORDER BY published_at DESC");
 $all_articles = $all->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 
 <!DOCTYPE html>
