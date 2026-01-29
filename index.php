@@ -1,5 +1,12 @@
 <?php
-$db = new PDO("mysql:host=localhost;dbname=resonance;charset=utf8", "resonance-admin", "JOUW_WACHTWOORD");
+
+    $db = new PDO(
+        "mysql:host=localhost:3306;dbname=resonance;charset=utf8",
+        "resonance-admin",
+        "VlQsyQ2gucqh08"
+    );
+
+
 
 $query = $db->query("SELECT * FROM news_articles ORDER BY published_at DESC LIMIT 3");
 $articles = $query->fetchAll(PDO::FETCH_ASSOC);
