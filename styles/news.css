@@ -46,7 +46,7 @@
             font-size: 18px;
         }
 
-        /* Layout */
+       
         .layout {
             display: grid;
             grid-template-columns: 220px 1fr;
@@ -54,7 +54,7 @@
             padding: 20px;
         }
 
-        /* Sidebar */
+       
         .sidebar {
             background: #0b1020;
             padding: 16px;

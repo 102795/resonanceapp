@@ -5,14 +5,14 @@ $db = new PDO(
     "VlQsyQ2gucqh08"
 );
 
-// ID ophalen
+
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
     die("Geen artikel ID opgegeven.");
 }
 
-// Artikel ophalen
+
 $stmt = $db->prepare("SELECT * FROM news_articles WHERE article_id = ?");
 $stmt->execute([$id]);
 $article = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -60,23 +60,22 @@ if (!$article) {
 
         <div class="article-container">
 
-            <!-- Thumbnail -->
+           
             <div class="article-thumbnail" 
                  style="background-image:url('../<?= htmlspecialchars($article['thumbnail_url']) ?>');">
             </div>
 
-            <!-- Titel -->
             <div class="article-title">
                 <?= htmlspecialchars($article['title']) ?>
             </div>
 
-            <!-- Meta -->
+      
             <div class="article-meta">
                 Gepubliceerd op <?= date('d-m-Y', strtotime($article['published_at'])) ?> 
                 · door <?= htmlspecialchars($article['author']) ?>
             </div>
 
-            <!-- Content -->
+           
             <div class="article-content">
                 <?= nl2br(htmlspecialchars($article['content'])) ?>
             </div>
