@@ -69,7 +69,7 @@ $articles = $query->fetchAll(PDO::FETCH_ASSOC);
        <section class="news-grid">
 
     <?php foreach ($articles as $article): ?>
-        <a href="news.php?id=<?= $article['article_id'] ?>">
+        <a href="/pages/news.php?id=<?= $article['article_id'] ?>">
             <article class="news-card">
 
                 <div class="news-image"
