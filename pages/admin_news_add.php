@@ -1,6 +1,11 @@
 <?php
 
-$db = new PDO("mysql:host=localhost;dbname=resonance;charset=utf8", "root", "");
+$db = new PDO(
+    "mysql:host=localhost;dbname=resonance;charset=utf8",
+    "resonance-admin",
+    "VlQsyQ2gucqh08"
+);
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
